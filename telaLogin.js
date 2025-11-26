@@ -6,3 +6,9 @@ document.addEventListener('DOMContentLoaded', function(){
         if(senha) senha.type = chk.checked ? 'text' : 'password';
     });
 });
+
+var btnEsqueciSenha = document.getElementById('lblEsqueciSenha');
+btnEsqueciSenha.addEventListener('click', function() 
+{
+    window.location.href = 'telaRecuperarSenha.html'; // Substitua pelo caminho correto da página
+});

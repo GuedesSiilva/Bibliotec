@@ -1,30 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BIBLIOTEC</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <div id="retEsquerda">
         <img src="imgs/Camada_1-1.svg" id="logo">
     </div>
-    <div id="retDireita"> 
+    <div id="retDireita">
         <div id="loginBox">
-            <h3>Bem vindo ao Bibliotec, o melhor lugar para fazer sua reserva de livros.</h3>
-            <form action="Bibliotec/telaInicio" method="post"> 
+            <form action="Bibliotec/telaInicio" method="post" id="formLogin">
+                <h3>Bem vindo ao Bibliotec, o melhor lugar para fazer sua reserva de livros.</h3>
                 <input type="text" id="username" name="username" placeholder="Username:" required>
                 <input type="password" id="password" name="password" placeholder="Password:" required>
-                <input type="checkbox" name="mostrarSenha" id="btnMostrarSenha"> <label for="" id="txtMostrarSenha">Mostrar Senha</label>
-                <button type="submit" id="btnEntrar">Entrar</button>
-                <button type="submit" id="btnCadastrar">Cadastrar</button>
-                <script src="telaLogin.js"></script>
+                <input type="checkbox" name="mostrarSenha" id="btnMostrarSenha"> <label for=""
+                    id="txtMostrarSenha">Mostrar Senha</label>
+                <label for="EsqueciSenha" id="lblEsqueciSenha">Esqueceu sua senha?</label>
+                <button type="EsqueciSenha" id="EsqueciSenha">
+                    <div id="btns">
+                        <button type="submit" id="btnEntrar">Entrar</button>
+                        <button type="submit" id="btnCadastrar">Cadastrar</button>
+                    </div>
+                    <script src="telaLogin.js"></script>
             </form>
         </div>
-    </div>
+    </div>>
+        <div id="redeSocial" style="margin-top:16px; text-align:center;">
+            <p style="font-size:14px; color:#26333D; margin:0 0 8px 0;">Conecte-se conosco:</p>
+            <a href="https://www.facebook.com" target="_blank">Facebook</a> —
+            <a href="https://www.instagram.com" target="_blank">Instagram</a> —
+            <a href="https://twitter.com" target="_blank">X</a>
+        </div>
 </body>
+
 </html>
