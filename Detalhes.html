@@ -9,6 +9,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libertinus+Keyboard&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <link rel="stylesheet" href="./Css/header.css">
     <link rel="stylesheet" href="./Css/style.css">
     <title>Bibliotec</title>
@@ -26,8 +27,8 @@
 
         <nav class="nav-desktop">
             <ul>
-                <li><a href="#">Buscar Livros</a></li>
-                <li><a href="#"><img src="./images/user.png" alt=""></a></li>
+                <li><span class="material-symbols-outlined">book</span><a href="#"> Minhas Reservas</a></li>
+                <li><span class="material-symbols-outlined">account_circle</span><a href="#">Meu Perfil</a></li>
             </ul>
         </nav>
 
@@ -35,8 +36,8 @@
 
         <nav class="nav-mobile" id="mobile-menu">
             <ul>
-                <li><a href="#">Buscar Livros</a></li>
-                <li><a href="#">Meu Perfil</a></li>
+                <li><span class="material-symbols-outlined">book</span><a href="#">Minhas Reservas</a></li>
+                <li><span class="material-symbols-outlined">account_circle</span><a href="#">Meu Perfil</a></li>
             </ul>
         </nav>
     </header>
@@ -48,23 +49,39 @@
         </div>
         <div class="detalhes_conteudo">
             <div class="detalhes_Cobrir" id="CobrirDetalhes"></div>
-                <div class="meta">
-                    <h2 id="detalhes_Titulo">Titulo do Livro</h2>
-                    <p class="autor" id="detalhes_Autor">Autor:</p>
-                    <p class="publicacao">Publicação:</p>
-                    <p class="detalhes_sinopse">Sinopse:</p>
-                    <button class="btn-reserva" id="reservarBTN">Reservar Livro</button>
+            <div class="meta">
+                <h2 id="detalhes_Titulo">Titulo do Livro</h2>
+                <p class="autor" id="detalhes_Autor">Autor:</p>
+                <p class="publicacao">Publicação:</p>
+                <p class="detalhes_sinopse">Sinopse:</p>
+                <p class="ativo" id="detalhes_Ativo">Disponibilidade:</p>
+                <button class="btn-reserva" id="reservarBTN">Reservar Livro</button>
 
-                    <div class="info">
-                        <h4>Informações técnicas</h4>
-                        <span class="insignia">Idioma: Português</span>
-                        <span class="insignia">Categoria: Ficção</span>
-                    </div>
-                </div>
             </div>
         </div>
+        <div class="info-tecnica">
+            <h3>Informações Técnicas</h3>
+
+            <hr class="linha">
+
+            <div class="info-item">
+                <span class="info-titulo">Idioma:</span>
+                <span class="tag">Português</span>
+            </div>
+
+            <div class="info-item">
+                <span class="info-titulo">Categoria:</span>
+                <span class="tag">Conto</span>
+                <span class="tag">Ficção</span>
+            </div>
+
+        </div>
+        </div>
     </section>
-    
+
+    <footer>
+        <p>&copy; 2025 Bibliotec. Todos os direitos reservados.</p>
+    </footer>
     <script src="./JS/header.js"></script>
     <script src="./JS/detalhes.js"></script>
 </body>
