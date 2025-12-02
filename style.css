@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#retEsquerda  {
+    background-color: #26333D;
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;   
+    align-items: center;
+}
+#retDireita {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #e9f0ef;
+    width: 50%;
+    height: 100%;
+    padding-top: 50px;
+    gap: 20px
+} 
+
+body, html {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+#btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+}
+#loginBox{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    padding: 40px;
+    background: #fff;
+    border-radius: 30px;
+}
+
+#username, #password {
+    background-color: #e9f0ef;
+    color: #4a67df;
+    width: 90%;
+    padding: 15px;
+    margin: 5px 0;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+#btnEntrar, #btnCadastrar {
+    position: relative;
+    width: 30%;
+    padding: 10px;
+    margin: 10px 1%;
+    border: solid #4a67df 1px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#btnEntrar {
+    background-color: #4a67df;
+    color: white;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+}
+#btnCadastrar {
+    background-color: white;
+    color: #4a67df;
+}
+
+#logo {
+    height: 45%;
+    max-height: 45%;
+    min-height: 45%;
+    width: 45%;
+    min-width: 45%;
+    max-width: 45%;
+}
+#txtMostrarSenha {
+    font-size: 12px;
+    color: #26333D;
+}
+#btnMostrarSenha {
+    width: 1em;
+    height: 1em;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+}
+#btnMostrarSenha:checked {
+    background-color: #4a67df;
+    border-color: #ffffff;
+    border: inset;
+}
+#lblEsqueciSenha {
+    font-size: 12px;
+    color: #26333D;
+    cursor: pointer;
+    float: right;
+    margin-top: 1px;
+}
+#formLogin {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+}
+#redesSociais {    
+    display: flex;
+    align-items: right;
+    justify-content: center;
+    padding: 5%;
+    border-radius: 10px;
+    width: 100%;
+    height: 20px;
+}
+#redesSociais a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+.redeSocial {
+    margin: 0 8px;
+    color: #4a67df;
+    text-decoration: none;
+}
+#redeSocial1 {
+    font-size: 14px;
+    color: #26333D;
+}
+#facebook, #instagram, #linkedin {
+    width: 20px;
+    height: 20px;
+}
+#linhaSenha {
+    max-width: 90%;
+}
