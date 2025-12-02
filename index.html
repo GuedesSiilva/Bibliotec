@@ -1,11 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biblio Tec</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/carrossel.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
-    
+<header class="main-header">
+        <a href="#" class="logo"><img src="./images/logo.png" alt=""></a>
+
+        <form class="search-form" id="search-form" action="#" role="search">
+            <input type="search" id="search-input" class="search-input" placeholder="Pesquisar livros..." />
+            <button class="search-btn" type="submit"><img src="./images/" alt=""></button>
+        </form>
+
+        <nav class="nav-desktop">
+            <ul>
+                <li><span class="material-symbols-outlined">book</span><a href="#"> Minhas Reservas</a></li>
+                <li><span class="material-symbols-outlined">account_circle</span><a href="#">Meu Perfil</a></li>
+            </ul>
+        </nav>
+
+        <button class="mobile-menu-icon" id="menu-btn">☰</button>
+
+        <nav class="nav-mobile" id="mobile-menu">
+            <ul>
+                <li><span class="material-symbols-outlined">book</span><a href="#">Minhas Reservas</a></li>
+                <li><span class="material-symbols-outlined">account_circle</span><a href="#">Meu Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+  <h1>Inicio</h1>
+  <h2>Livros</h2>
+
+  <div id="container-livros" class="container">
+    <div class="carrossel-container">
+        <button class="btn prev">❮</button>
+      <div class="carrossel">
+        <a href="produto.html?id=1" class="item">
+          <img src="images/capas/codigolimpo.jpg" alt="Código Limpo">
+          <p>Código Limpo</p>
+        </a>
+        <a href="produto.html?id=2" class="item">
+          <img src="images/capas/domcasmurro.jpg" alt="Dom Casmurro">
+          <p>Dom Casmurro</p>
+        </a>
+        <a href="produto.html?id=3" class="item">
+          <img src="images/capas/filhasdalua.jpg" alt="Filhas da Lua">
+          <p>Filhas da Lua</p>
+        </a>
+        <a href="produto.html?id=4" class="item">
+          <img src="images/capas/tiparanegocios.jpg" alt="TI para Negócios">
+          <p>TI para Negócios</p>
+        </a>
+        <a href="produto.html?id=5" class="item">
+          <img src="images/capas/mestresdotempo.jpg" alt="Mestres do Tempo">
+          <p>Mestres do Tempo</p>
+          </a>
+        <a href="produto.html?id=6" class="item">
+          <img src="images/harryordem.jpg" alt="Harry Potter e as Relíquias da Morte">
+          <p>Harry Potter e as Relíquias da Morte</p>
+        </a>
+      </div>
+       <button class="btn next">❯</button>
+    </div>
+  </div>
+  <h2>Categorias</h2>
+  <div id="categorias-container" class="carrossel-container">
+    <button class="btn prev">❮</button>
+    <div class="carrossel">
+      <a href="categoria.html?id=1" class="item">
+        <img src="images/categorias/fantasia.png" alt="Fantasia">       
+      </a>
+      <a href="categoria.html?id=2" class="item">
+        <img src="images/categorias/ficcao.png" alt="Ficção Cientifica">
+      </a>
+      <a href="categoria.html?id=3" class="item">
+        <img src="images/categorias/romance.png" alt="Romance">
+      </a>
+      <a href="categoria.html?id=4" class="item">
+        <img src="images/categorias/tecnologia.png" alt="Tecnologia">
+      </a>
+      <a href="categoria.html?id=5" class="item">
+        <img src="images/categorias/aventura.png" alt="Aventura">
+      </a>
+    </div>
+    <button class="btn next">❯</button>
+  </div>
+  <footer>
+    <p>&copy; 2025 Biblio Tec. Todos os direitos reservados.</p>
+  </footer>
+  <script src="js/main.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/carrossel.js"></script>
 </body>
+
 </html>
