@@ -1,20 +1,17 @@
 /* ============================
    CONTAINER DO CARROSSEL
-============================ */
-.carrossel-container {
+============================= */
+.carrossel-container-livros{
   position: relative;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
   padding: 14px 0;
-  box-sizing: border-box;
-  overflow: hidden; /* esconde o que sai do eixo X */
+  overflow-x: hidden;
   display: flex;
   align-items: center;
-}
+  justify-content: center;}
 
 /* BOTÕES */
-.carrossel-container .btn {
+.carrossel-container-livros button{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -23,134 +20,119 @@
   border: none;
   width: 40px;
   height: 40px;
-  font-size: 18px;
   border-radius: 50%;
   cursor: pointer;
   z-index: 20;
+  font-size: 18px;
   display: grid;
   place-items: center;
 }
 
-.carrossel-container .prev { left: 8px; }
-.carrossel-container .next { right: 8px; }
+.prev-livros  { left: 8px; }
+.next-livros  { right: 8px; }
 
-.carrossel-container .btn:hover { background: rgba(0,0,0,0.8); }
+.prev-categorias { left: 8px; }
+.next-categorias { right: 8px; }
+
+button:hover { background: rgba(0,0,0,0.8); }
 
 /* ============================
-
-============================ */
-.carrossel,
-.carrossel-livros,
-.carrossel-categorias {
+   ÁREA DO CARROSSEL
+============================= */
+.carrossel-livros {
   display: flex;
-  gap: 20px; /* gap usado pelo JS para cálculo */
+  gap: 20px;
   transition: transform 0.35s ease;
-  will-change: transform;
   padding-inline: clamp(12px, 3vw, 60px);
-  box-sizing: border-box;
   align-items: flex-start;
 }
 
 /* ============================
-   ESTILO GERAL DO ITEM
-============================ */
+   ITENS
+============================= */
 .item {
-  flex: 0 0 calc(25% - 15px); /* 4 por view em desktop */
+  flex: 0 0 calc(25% - 15px);
   min-width: 140px;
-  box-sizing: border-box;
   text-align: center;
   text-decoration: none;
 }
 
 .item img {
   width: 100%;
-  height: auto;
   aspect-ratio: 2 / 3;
   border-radius: 8px;
-  display: block;
   object-fit: cover;
-  transition: transform .2s ease, box-shadow .2s ease;
+  transition: .2s;
 }
 
-.carrossel-livros :hover img {
+.carrossel-livros .item:hover img {
   transform: scale(1.02);
   box-shadow: 0 8px 20px rgba(0,0,0,0.35);
 }
 
 .item p {
-  margin: 8px 0 0;
+  margin-top: 8px;
   font-size: 14px;
-  color: #222;
-  line-height: 1.1;
-}
-
-/* ============================
-   CARROSSEL DE LIVROS — seção escura
-============================ */
-#container-livros {
-  background-color: #26333d;
-  padding-block: 20px;
-}
-
-#container-livros .item p,
-#container-livros .item a {
   color: #fff;
 }
 
-/* força textos brancos dentro dos itens de livros */
-#container-livros .item p {
-  color: #fff;
-}
-
-/* ============================
-   CARROSSEL DE CATEGORIAS
-============================ */
-#categorias-container .carrossel-categorias {
-  gap: 18px;
-  padding-block: 18px;
-  justify-content: flex-start;
-}
-
-/* itens das categorias com imagem quadrada/circular */
-#categorias-container .item {
-  flex: 0 0 120px;
-  min-width: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  background: #fff;
-  padding: 8px;
-  border-radius: 10px;
-  color: #26333d;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-  text-decoration: none;
-}
-
-#categorias-container .item img {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: contain;
-  border-radius: 8px;
-}
-
-/* hover mais sutil nas categorias */
-#categorias-container .item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-}
-
-/* ============================
-   RESPONSIVIDADE
-============================ */
-@media (max-width: 992px) {
-  .item { flex: 0 0 calc(33.333% - 14px); } /* 3 por view */
-  #categorias-container .item { flex: 0 0 110px; }
+/* RESPONSIVIDADE LIVROS */
+@media (max-width: 1280px) {
+  .carrossel-livros .item {
+    flex: 0 0 calc(25% - 15px);
+  }
 }
 
 @media (max-width: 768px) {
-  .item { flex: 0 0 calc(50% - 12px); } /* 2 por view */
-  .carrossel,
-  .carrossel-livros,
+  .carrossel-livros {
+    gap: 14px;
+    padding-inline: clamp(8px, 2vw, 30px);
+  }
+
+  .carrossel-livros .item {
+    flex: 0 0 calc(50% - 7px);
+    min-width: 80px;
+    max-width: 150px;
+  }
+
+  .item img {
+    aspect-ratio: 2 / 3;
+  }
+
+  .item p {
+    font-size: 12px;
+    margin-top: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carrossel-livros {
+    gap: 10px;
+    padding-inline: clamp(6px, 2vw, 20px);
+  }
+
+  .carrossel-livros .item {
+    flex: 0 0 calc(100% - 0px);
+    min-width: 80px;
+  }
+
+  .item img {
+    max-width: 100%;
+  }
+
+  .item p {
+    font-size: 11px;
+    margin-top: 4px;
+  }
+}
+
+/* ============================
+   LIVROS (fundo escuro)
+============================= */
+.carrossel-container-livros {
+  background: #26333d;
+  padding-block: 20px;
+}
+.carrossel-container-livros .item p {
+  color: #fff;
 }

@@ -1,0 +1,123 @@
+/* ============================
+   CATEGORIAS CONTAINER
+============================= */
+.categorias-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* ============================
+   CATEGORIAS GRID
+============================= */
+.categorias-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 7px;
+  padding: 7px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.categorias-grid .item {
+  flex: none;
+  background: #fff;
+  color: #26333d;
+  padding: 4px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.categorias-grid .item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+.categorias-grid .item p {
+  margin-top: 3px;
+  font-size: 9px;
+  color: #26333d;
+  font-weight: 600;
+  text-align: center;
+}
+
+.categorias-grid .item img {
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+}
+
+/* ============================
+   RESPONSIVIDADE GRID
+============================= */
+@media (max-width: 1280px) {
+  .categorias-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .categorias-grid .item p {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .categorias-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .categorias-grid .item {
+    padding: 5px;
+  }
+
+  .categorias-grid .item p {
+    font-size: 9px;
+    margin-top: 3px;
+  }
+}
+
+@media (max-width: 768px) {
+  .categorias-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
+    padding: 7px;
+  }
+
+  .categorias-grid .item {
+    padding: 4px;
+  }
+
+  .categorias-grid .item p {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .categorias-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+    padding: 5px;
+  }
+
+  .categorias-grid .item {
+    padding: 10px;
+  }
+
+  .categorias-grid .item p {
+    font-size: 15px;
+    margin-top: 2px;
+  }
+}
