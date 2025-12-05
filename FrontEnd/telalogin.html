@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIBLIOTEC</title>
+    <link rel="stylesheet" href="../Css/telalogin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="retEsquerda">
+        <img src="../IMGS/Camada_1-1.svg" id="logo">
+    </div>
+    <div id="retDireita">
+        <div id="loginBox">
+            <form action="Bibliotec/telaInicio" method="post" id="formLogin">
+                <h3>Bem vindo ao Bibliotec, o melhor lugar para fazer sua reserva de livros.</h3>
+                <input type="text" id="username" name="username" placeholder="Username:" required>
+                <input type="password" id="password" name="password" placeholder="Password:" required>
+                <div id="linhaSenha">
+                    <input type="checkbox" name="mostrarSenha" id="btnMostrarSenha"> <label for=""
+                        id="txtMostrarSenha">Mostrar Senha</label>
+                    <label for="EsqueciSenha" id="lblEsqueciSenha">Esqueceu sua senha?</label>
+                    <button type="EsqueciSenha" id="EsqueciSenha">
+                </div>
+                <div id="btns">
+                    <button type="submit" id="btnEntrar">Entrar</button>
+                    <button type="submit" id="btnCadastrar">Cadastrar</button>
+                </div>
+                <script src="telaLogin.js"></script>
+            </form>
+            </div>
+            <div id="redesSociais">
+                <p id="redeSocial1">Redes Sociais</p>
+                <a href="https://www.facebook.com" class="redeSocial">Facebook</a>
+                <img src="../ICONS/facebook.png" id="facebook" alt="Facebook">
+                <a href="https://www.instagram.com" class="redeSocial">Instagram</a>
+                <img src="..//ICONS/instagram.png" id="instagram" alt="Instagram">
+                <a href="https://www.linkedin.com" class="redeSocial">Linkedin</a>
+                <img src="../ICONS/linkedin.png" id="linkedin" alt="Linkedin">
+            </div>
+        
+    </div>
+</body>
+
+</html>

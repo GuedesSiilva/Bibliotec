@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&quot");
+
+:root {
+  --cor-primaria: #26333d;
+  --cor-fundo: #e9f0ef;
+  --cor-texto: #333;
+  --espacamento: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  justify-content: center;
+  margin: 0;
+  font-family: Montserrat, sans-serif;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  display: flex;
+  flex-direction: column;
+  min-height: auto;
+}
+
+h1 {
+  color: #26333D;
+  padding: 10px;
+  background-color: gray;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.detalhes_conteudo {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+}
+
+.detalhes_Cobrir {
+  margin: 10px;
+  width: 220px;
+  height: 320px;
+  border-radius: 8px;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* imagem da capa inserida dinamicamente */
+.detalhes_Cobrir .book-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.meta h2 {
+  margin-bottom: 6px;
+}
+
+.meta {
+  padding: 0.6rem;
+  gap: 0.35rem;
+}
+
+.autor {
+  color: var(--muted);
+}
+
+.btn-reserva {
+  background: var(--cor-primaria);
+  color:#ffffff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: all 0.3s ease;
+}
+
+.btn-reserva:hover {
+  background: #1b5c8d;
+}
+
+.btn {
+  background: var(--cor-primaria);
+  color:#ffffff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #1b5c8d;
+}
+
+.btn-favoritar {
+  background: transparent;
+  border: 2px solid var(--cor-primaria);
+  padding: 5px;
+  border-radius: 100px;
+  display: flex;
+  border:none;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  min-width: 44px;
+  height: 44px;
+}
+
+.btn-favoritar .material-symbols-outlined {
+  font-size: 2rem;
+  color: var(--cor-primaria);
+}
+
+.btn-favoritar:hover {
+  background: rgba(38, 51, 61, 0.1);
+  transform: scale(1.05);
+}
+
+.btn-favoritar.active .material-symbols-outlined {
+  color: #e0245e;
+  font-variation-settings: 'FILL' 1;
+}
+
+/* Footer fixo */
+footer {
+  margin-top: auto;
+  background: var(--cor-primaria);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .detalhes_Cobrir {
+    width: 260px;
+    height: auto;
+  }
+
+  .detalhes_Cobrir .book-cover-img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Telas grandes */
+@media (min-width: 1400px) {
+  .detalhes_Cobrir {
+    width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .detalhes_conteudo {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .detalhes_Cobrir {
+    width: 70%;
+    height: auto;
+  }
+
+  .detalhes_Cobrir .book-cover-img {
+    height: auto;
+    max-width: 320px;
+  }
+}
+
+/* Área de Informações Técnicas */
+.info-tecnica {
+  padding: 10px;
+  width: 100%;
+  font-family: Montserrat, sans-serif;
+  color: #333;
+}
+
+.info-tecnica h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #26333d;
+}
+
+hr {
+  width: 100%;
+  border-top: 3px solid #26333d;
+}
+
+.linha {
+  width: 100vw;
+  height: 3px;
+  background: #26333d;
+  border: none;
+  margin: 1rem calc(-50vw + 50%);
+  padding: 0;
+}
+
+.info-item {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 12px;
+}
+
+.info-titulo {
+  font-weight: 700;
+  font-size: 1.05rem;
+  flex-shrink: 0;
+}
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  background: #e6e6e6;
+  color: #333;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+/* Responsivo extra pequeno */
+@media (max-width: 480px) {
+  .info-tecnica h3 {
+    font-size: 1.2rem;
+  }
+
+  .info-titulo {
+    font-size: 1rem;
+  }
+
+  .tag {
+    font-size: 0.9rem;
+    padding: 5px 12px;
+  }
+}
