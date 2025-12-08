@@ -1,3 +1,12 @@
+import { carregarLivros, livros } from "../JS/dados.js";
+
+async function start() {
+   await carregarLivros();
+   iniciarCarrosselLivros();
+}
+
+start();
+
 function iniciarCarrosselLivros() {
   const container = document.querySelector(".carrossel-container-livros");
   if (!container) return;
@@ -8,7 +17,7 @@ function iniciarCarrosselLivros() {
 
   // Render
   carrossel.innerHTML = livros.map(item => `
-    <a href="produto.html?id=${item.id}" class="item">
+    <a href="Detalhes.html?id=${item.id}" class="item">
       <img src="${item.img}" alt="${item.nome}">
       <p>${item.nome}</p>
     </a>

@@ -1,3 +1,5 @@
+import { categorias } from "../JS/dados.js";
+
 function iniciarCategoriasGrid() {
   const grid = document.querySelector(".categorias-grid");
   if (!grid) return;
