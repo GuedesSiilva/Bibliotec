@@ -1,0 +1,14 @@
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Montserrat, sans-serif;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+}
+h2 {
+  font-size: 30px;
+  padding-left: 2rem;
+}

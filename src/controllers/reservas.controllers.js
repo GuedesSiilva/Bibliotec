@@ -142,3 +142,50 @@ export async function DeletarReservas(req, res) {
     return res.status(500).json({ erro: err.message });
   }
 };
+
+
+export async function ListarReservasDeLivrosID(req, res) {
+  try {
+    const { id } = req.params;
+
+    const sql = `
+      SELECT 
+        u.id AS id_usuario,
+        u.nome AS nome_usuario,
+        l.id AS id_livro,
+        l.titulo AS titulo_livro,
+        l.autor AS autor_livro,
+        l.caminho_capa AS caminho_capa,
+        r.data_devolucao
+      FROM reservas r
+      JOIN usuarios u ON r.usuario_id = u.id
+      JOIN livros l ON r.livro_id = l.id
+      WHERE u.id = ?;
+    `;
+
+    const [rows] = await db.query(sql, [id]);
+
+    if (rows.length === 0) {
+      return res.status(200).json([]);
+    }
+
+    function formatarDataBR(dataISO) {
+      const d = new Date(dataISO);
+      const dia = String(d.getDate()).padStart(2, "0");
+      const mes = String(d.getMonth() + 1).padStart(2, "0");
+      const ano = d.getFullYear();
+      return `${dia}/${mes}/${ano}`;
+    }
+
+    const formatado = rows.map(r => ({
+      ...r,
+      data_devolucao: formatarDataBR(r.data_devolucao),
+    }));
+
+    return res.status(200).json(formatado);
+
+  } catch (error) {
+    console.error("Erro ao obter reserva:", error);
+    return res.status(500).json({ error: "Erro interno" });
+  }
+};

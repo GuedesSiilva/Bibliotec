@@ -83,27 +83,28 @@ export async function ListarLivros(req, res) {
 
 export async function ObterLivros(req, res) {
     try {
-        const [rows] = await db.execute("SELECT * FROM livros WHERE id = ?",
-            [req.params.id,]);
+        const [rows] = await db.execute(
+            "SELECT * FROM livros WHERE id = ?",
+            [req.params.id]
+        );
+
         if (rows.length === 0)
             return res.status(404).json({ erro: "Livro não encontrado" });
 
-        function formatarDataBR(date) {
+        const formatarDataBR = date => {
             const d = new Date(date);
-            const dia = String(d.getDate()).padStart(2, "0");
-            const mes = String(d.getMonth() + 1).padStart(2, "0");
-            const ano = d.getFullYear();
-            return `${dia}/${mes}/${ano}`;
-        }
+            return `${String(d.getDate()).padStart(2, "0")}/${String(d.getMonth() + 1).padStart(2, "0")
+                }/${d.getFullYear()}`;
+        };
 
-
-        const livrosFormatados = rows.map(r => ({
+        const resultado = rows.map(r => ({
             ...r,
             criado_em: formatarDataBR(r.criado_em),
-            atualizado_em: formatarDataBR(r.atualizado_em),
+            atualizado_em: formatarDataBR(r.atualizado_em)
         }));
 
-        return res.status(200).json(livrosFormatados);
+        res.status(200).json(resultado);
+
     } catch (err) {
         res.status(500).json({ erro: err.message });
     }
@@ -197,4 +198,4 @@ export async function ListarAvaliacoesDeLivros(req, res) {
         console.error("Erro ao listar avaliações do livro:", error);
         res.status(500).json({ message: "Erro ao buscar avaliações do livro" });
     }
-}
+};

@@ -1,0 +1,138 @@
+/* ============================
+   CONTAINER DO CARROSSEL
+============================= */
+.carrossel-container-livros{
+  position: relative;
+  width: 100%;
+  padding: 14px 0;
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;}
+
+/* BOTÕES */
+.carrossel-container-livros button{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 20;
+  font-size: 18px;
+  display: grid;
+  place-items: center;
+}
+
+.prev-livros  { left: 8px; }
+.next-livros  { right: 8px; }
+
+.prev-categorias { left: 8px; }
+.next-categorias { right: 8px; }
+
+button:hover { background: rgba(0,0,0,0.8); }
+
+/* ============================
+   ÁREA DO CARROSSEL
+============================= */
+.carrossel-livros {
+  display: flex;
+  gap: 10px;
+  transition: transform 0.35s ease;
+  padding-inline: clamp(12px, 3vw, 60px);
+  align-items: flex-start;
+}
+
+/* ============================
+   ITENS
+============================= */
+.item {
+  flex: 0 0 calc(25% - 15px);
+  min-width: 140px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.item img {
+  width: 75%;
+  aspect-ratio: 2 / 3;
+  border-radius: 8px;
+  object-fit: cover;
+  transition: .2s;
+}
+
+.carrossel-livros .item:hover img {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+.item p {
+  margin-top: 8px;
+  font-size: 20px;
+  color: #fff;
+}
+
+/* RESPONSIVIDADE LIVROS */
+@media (max-width: 1280px) {
+  .carrossel-livros .item {
+    flex: 0 0 calc(25% - 15px);
+  }
+}
+
+@media (max-width: 768px) {
+  .carrossel-livros {
+    gap: 14px;
+    padding-inline: clamp(8px, 2vw, 30px);
+  }
+
+  .carrossel-livros .item {
+    flex: 0 0 calc(50% - 7px);
+    min-width: 80px;
+    max-width: 150px;
+  }
+
+  .item img {
+    aspect-ratio: 2 / 3;
+  }
+
+  .item p {
+    font-size: 15px;
+    margin-top: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carrossel-livros {
+    gap: 10px;
+    padding-inline: clamp(6px, 2vw, 20px);
+  }
+
+  .carrossel-livros .item {
+    flex: 0 0 calc(100% - 0px);
+    min-width: 80px;
+  }
+
+  .item img {
+    max-width: 100%;
+  }
+
+  .item p {
+    font-size: 15px;
+    margin-top: 4px;
+  }
+}
+
+/* ============================
+   LIVROS (fundo escuro)
+============================= */
+.carrossel-container-livros {
+  background: #26333d;
+  padding-block: 20px;
+}
+.carrossel-container-livros .item p {
+  color: #fff;
+}

@@ -1,45 +1,55 @@
-const livros = [
-  {
-    img: "../IMGS/diario-banana.jpg",
-    titulo: "Diário de um Banana",
-    autor: "Jeff Kinney",
-  },
-  {
-    img: "../IMGS/harry-potter.jpg",
-    titulo: "Harry Potter e a Ordem da Fênix",
-    autor: "J.K. Rowling",
-  },
-  {
-    img: "../IMGS/mestresdotempo.jpg",
-    titulo: "Mestres do Tempo",
-    autor: "Jair Bolsonaro",
-  },
-  {
-    img: "../IMGS/domcasmurro.jpg",
-    titulo: "Dom Casmurro",
-    autor: "Machado de Assis",
-  }
-];
+const API_URL = "http://localhost:3000";
+const id_usuario = 4; 
 
-const grid = document.getElementById("booksGrid");
+async function carregarReservas() {
+  const statusGrid = document.getElementById("booksStatusGrid");
+  statusGrid.innerHTML = "";
 
-livros.forEach(livro => {
+ const resp = await fetch(`${API_URL}/reservas/${id_usuario}`);
+const lista = await resp.json();
+
+lista.forEach(item => {
   const card = document.createElement("div");
   card.classList.add("book-card");
 
-card.innerHTML = `
-    <img src="${livro.img}" alt="${livro.titulo}">
-    <h3>${livro.titulo}</h3>
-    <p>${livro.autor}</p>
+  card.innerHTML = `
+    <img src="${item.caminho_capa}" alt="${item.titulo_livro}">
+    <h3>${item.titulo_livro}</h3>
+    <p class="tag">Devolução: ${item.data_devolucao}</p>
+  `;
 
-    <button class="favorite-btn">
-        <span class="material-symbols-outlined">favorite_border</span>
-    </button>
-`;
+  statusGrid.appendChild(card);
+})};
+
+async function carregarFavoritos() {
+  const grid = document.getElementById("booksGrid");
+  grid.innerHTML = "";
+
+  const resp = await fetch(`${API_URL}/favoritos`);
+  const dados = await resp.json();
+
+  dados.forEach(livro => {
+    const card = document.createElement("div");
+    card.classList.add("book-card");
+
+    card.innerHTML = `
+      <img src="${livro.img}" alt="${livro.titulo}">
+      <h3>${livro.titulo}</h3>
+      <p>${livro.autor}</p>
+
+      <button class="favorite-btn">
+        <span class="material-symbols-outlined">favorite</span>
+      </button>
+    `;
+
+    grid.appendChild(card);
+  });
+}
+
+carregarReservas();
+carregarFavoritos();
 
 
-  grid.appendChild(card);
-});
 
 // comportamento do coração
 document.addEventListener("click", (e) => {
@@ -51,48 +61,3 @@ document.addEventListener("click", (e) => {
       icon.textContent === "favorite" ? "favorite_border" : "favorite";
   }
 });
-
-
-const livrosStatus = [
-  {
-    img: "../IMGS/diario-banana.jpg",
-    titulo: "Diário de um Banana",
-    autor: "Jeff Kinney",
-    tag: "RESERVADO"
-  },
-  {
-    img: "../IMGS/harry-potter.jpg",
-    titulo: "Harry Potter e a Ordem da Fênix",
-    autor: "J.K. Rowling",
-    tag: "DEVOLVIDO"
-  },
-  {
-    img: "../IMGS/turma-monica.jpg",
-    titulo: "Turma da Mônica",
-    autor: "Mauricio de Souza",
-    tag: "DEVOLVIDO"
-  },
-  {
-    img: "../IMGS/filhasdalua.jpg",
-    titulo: "Filhas da Lua",
-    autor: "Carolina França",
-    tag: "DEVOLVIDO"
-  }
-];
-
-const statusGrid = document.getElementById("booksStatusGrid");
-
-livrosStatus.forEach(livro => {
-  const card = document.createElement("div");
-  card.classList.add("book-card");
-
-  card.innerHTML = `
-        <img src="${livro.img}" alt="${livro.titulo}">
-        <h3>${livro.titulo}</h3>
-        <p>${livro.autor}</p>
-        <span class="tag">${livro.tag}</span>
-    `;
-
-  statusGrid.appendChild(card);
-});
-
