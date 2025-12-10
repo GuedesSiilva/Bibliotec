@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Senha - BIBLIOTEC</title>
+    <link rel="stylesheet" href="../Css/telalogin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="retEsquerda">
+        <img src="../IMGS/Camada_1-1.svg" id="logo" alt="Bibliotec logo">
+    </div>
+
+    <div id="retDireita">
+        <div id="loginBox">
+            <form id="formRecuperar" action="#" method="post">
+                <h3>Recuperar senha</h3>
+                <p>Insira seu e-mail ou username para receber instruções de recuperação.</p>
+
+                <input type="text" id="recUsername" name="recUsername" placeholder="Username ou E-mail" required>
+
+                <div id="linhaSenha" style="margin-top:8px;">
+                    <label id="lblInfoRec" style="font-size:13px;color:#26333D;">Enviaremos um e-mail com as instruções.</label>
+                </div>
+
+                <div id="btns">
+                    <button type="submit" id="btnEnviarRec">Enviar</button>
+                    <a href="telalogin.html"><button type="button" id="btnVoltar">Voltar</button></a>
+                </div>
+                <script src="../JS/telalogin.js"></script>
+            </form>
+        </div>
+
+        <div id="redesSociais">
+            <p id="redeSocial1">Redes Sociais</p>
+            <a href="https://www.facebook.com" class="redeSocial">Facebook</a>
+            <img src="../ICONS/facebook.png" id="facebook" alt="Facebook">
+            <a href="https://www.instagram.com" class="redeSocial">Instagram</a>
+            <img src="..//ICONS/instagram.png" id="instagram" alt="Instagram">
+            <a href="https://www.linkedin.com" class="redeSocial">Linkedin</a>
+            <img src="../ICONS/linkedin.png" id="linkedin" alt="Linkedin">
+        </div>
+
+    </div>
+</body>
+
+</html>
