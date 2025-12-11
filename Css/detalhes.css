@@ -130,19 +130,6 @@ h1 {
   font-variation-settings: 'FILL' 1;
 }
 
-/* Footer fixo */
-footer {
-  margin-top: auto;
-  background: var(--cor-primaria);
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-}
-
-footer p {
-  margin: 0;
-}
 
 /* Desktop */
 @media (min-width: 1024px) {
