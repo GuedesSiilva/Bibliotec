@@ -6,6 +6,7 @@ async function carregarPerfil() {
   document.getElementById("nomeUsuario").textContent = dados.nome
   document.getElementById("emailUsuario").textContent = `Email: ${dados.email}`
   document.getElementById("senhaUsuario").textContent = `Senha: ${dados.senha}`
+  document.getElementById("celularUsuario").textContent = `Celular: ${dados.celular}`
 }
 carregarPerfil();
 
@@ -15,6 +16,7 @@ async function salvarPerfil() {
     nome: document.querySelector("nomeUsuario").value,
     email: document.querySelector("emailUsuario").value,
     senha: document.querySelector("senhaUsuario").value,
+    celular: document.querySelector("celularUsuario").value,
   };
 
   await fetch(`http://localhost:3000/usuarios/${id}`, {
