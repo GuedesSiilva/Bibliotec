@@ -19,7 +19,7 @@ lista.forEach(item => {
 
   statusGrid.appendChild(card);
 })};
-
+0 
 carregarReservas();
 
 async function carregarTituloCategoria() {
