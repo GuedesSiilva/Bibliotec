@@ -89,6 +89,16 @@ h1 {
   margin-bottom: 1rem;
 }
 
+
+.empty-box {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  justify-self: center;
+}
 /* TABLET: 2 colunas */
 @media (max-width: 1024px) {
     .books-grid {

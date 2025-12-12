@@ -1,6 +1,6 @@
 // fallback — garante que a função exista mesmo sem detalhes.js
 if (typeof window.irParaDetalhes !== "function") {
-  window.irParaDetalhes = function(id) {
+  window.irParaDetalhes = function (id) {
     if (!id) return;
     window.location.href = `detalhes.html?id=${id}`;
   };
@@ -16,6 +16,15 @@ async function carregarReservas() {
 
   const resp = await fetch(`${API_URL}/reservas/${id_usuario}`);
   const lista = await resp.json();
+
+   if (!lista || lista.length === 0) {
+    statusGrid.innerHTML = `
+      <div class="empty-box">
+        Você ainda não possui nenhuma reserva efetuada.
+      </div>
+    `;
+    return;
+  }
 
   lista.forEach(item => {
     const card = document.createElement("div");
@@ -40,6 +49,14 @@ async function carregarFavoritos() {
   const resp = await fetch(`${API_URL}/favoritos/${id_usuario}`);
   const lista = await resp.json();
 
+  if (!lista || lista.length === 0) {
+    grid.innerHTML = `
+      <div class="empty-box">
+        Você ainda não possui nenhum livro favoritado.
+      </div>
+    `;
+    return;
+  }
   lista.forEach(item => {
     const card = document.createElement("div");
     card.classList.add("book-card");
