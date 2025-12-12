@@ -80,6 +80,8 @@
 
 .search-input::placeholder {
   color: black;
+  font-family: 'Montserrat', sans-serif;
+
 }
 
 .search-btn {
@@ -166,4 +168,9 @@
   .nav-mobile.is-open {
     display: block;
   }
+}
+.lupa {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }

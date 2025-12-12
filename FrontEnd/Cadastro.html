@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro - BIBLIOTEC</title>
+    <link rel="stylesheet" href="../Css/header.css" />
+    <link rel="stylesheet" href="../Css/telalogin.css" />
+    <link rel="stylesheet" href="../Css/footer.css" />
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <div id="retEsquerda">
+        <img src="../IMGS/Camada_1-1.svg" id="logo" alt="Bibliotec logo" />
+    </div>
+    <div id="retDireita">
+        <div id="loginBox">
+            <h3>Crie sua conta no Bibliotec</h3>
+            <form id="formCadastro" action="#" method="post">
+                <input type="text" id="nome" name="nome" placeholder="Nome" required />
+                <input type="text" id="username" name="username" placeholder="Username" required />
+                <input type="email" id="email" name="email" placeholder="E-mail" required />
+                <input type="password" id="password" name="password" placeholder="Senha" required />
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirmar senha" required />
+                <input type="tel" id="telefone" name="telefone" placeholder="Telefone" />
+                <div id="btns">
+                    <button type="submit" id="btnCadastrar">Cadastrar</button>
+                    <a href="telalogin.html"><button type="button" id="btnEntrar">Ir para Login</button></a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script type="module" src="../JS/header.js"></script>
+    <script type="module" src="../JS/footer.js"></script>
+</body>
+</html>
