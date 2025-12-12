@@ -1,8 +1,8 @@
- const id = 5;
+ import { id } from './telalogin.js';
  localStorage.setItem("usuarioId", id);
 let editando = false;
  const btnEditar = document.getElementById("editarPerfilBtn");
-  const spanNome = document.getElementById("nomeUsuario")
+   const spanNome = document.getElementById("nomeUsuario")
   const spanEmail = document.getElementById("emailUsuario")
   const spanSenha = document.getElementById("senhaUsuario")
   const spanTelefone = document.getElementById("telefoneUsuario")

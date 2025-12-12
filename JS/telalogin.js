@@ -5,6 +5,7 @@ var senha = document.getElementById('password');
 var username = document.getElementById('username');
 var lblEsqueciSenha = document.getElementById('lblEsqueciSenha');
 export var id = null;
+
 async function extrairListaUsuarios() {
     try {
         const resp = await fetch(`${API_URL}/usuarios`);
@@ -26,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
     formLogin.addEventListener('submit', async function (e) {
         e.preventDefault();
         const listaUsuarios = await extrairListaUsuarios();
-        
+
         if (!username || !senha) return;
 
         const usernameValue = username.value;
@@ -39,10 +40,10 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log('Usuário encontrado:', usuarioEncontrado);
             id = usuarioEncontrado.id;
             localStorage.setItem('userId', String(id));
-            console.log('ID salvo no localStorage:',id);
-            // window.location.href = '/FrontEnd/telainicial.html';
-            }
-             
-        } 
+            console.log('ID salvo no localStorage:', id);
+            window.location.href = '/FrontEnd/telainicial';
+        }
+
+    }
     );
 });
