@@ -49,11 +49,13 @@ async function salvarPerfil() {
         nome: novoNome,
         email: novoEmail,
         senha: novaSenha,
+        foto: fotoBase64,
     });
     const body = {
         nome: novoNome,
         email: novoEmail,
         senha: novaSenha,
+        foto: fotoBase64,
     };
     try {
         const resposta = await fetch(`http://localhost:3000/usuarios/${id}`, {
@@ -80,34 +82,43 @@ async function salvarPerfil() {
 }
 carregarPerfil();
 
-const fotoPerfil = document.getElementById("fotoPerfil");
-const inputFoto = document.getElementById("inputFoto");
+let fotoBase64 = null; // Mantém a variável de escopo global
 
-fotoPerfil.addEventListener("click", () => {
-  inputFoto.click();
-});
+const fotoPerfil = document.getElementById("fotoPerfil"); // Garante que você tenha o elemento
+const inputFoto = document.getElementById("inputFoto"); // Garante que você tenha o elemento
+
 inputFoto.addEventListener("change", () => {
-  const arquivo = inputFoto.files[0];
-  if (!arquivo) return;
-
-  const url = URL.createObjectURL(arquivo);
-  fotoPerfil.src = url;
-});
-
-document.getElementById("inputFoto").addEventListener("change", async (e) => {
-    const arquivo = e.target.files[0];
-    if (!arquivo) return;
+    const arquivo = inputFoto.files[0];
+    
+    // Se nenhum arquivo foi selecionado ou se a ação foi cancelada
+    if (!arquivo) {
+        fotoBase64 = null; // Limpa o Base64 se o usuário cancelar
+        return;
+    }
 
     const reader = new FileReader();
-    reader.onload = async () => {
-        const base64 = reader.result;
-
-        await fetch(`http://localhost:3000/usuarios/${id}`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ foto: base64 })
-        });
+    
+    // Esta função será executada assim que a leitura do arquivo terminar
+    reader.onload = () => {
+        // 1. Armazena a string Base64 para ser enviada na requisição PUT/salvar
+        fotoBase64 = reader.result; 
+        
+        // 2. Define o preview da imagem usando a mesma string Base64
+        fotoPerfil.src = fotoBase64; 
     };
     
+    // Inicia a leitura do arquivo como uma URL de dados (Base64)
     reader.readAsDataURL(arquivo);
 });
+
+
+fotoPerfil.addEventListener("click", () => {
+    if (!editando) return;
+    inputFoto.click();
+});
+
+
+document.getElementById("sairPerfilBtn").addEventListener("click", () => {
+    window.location.href = '../FrontEnd/telaLogin.html';
+    localStorage.removeItem("usuarioId");
+})

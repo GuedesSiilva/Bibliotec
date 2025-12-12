@@ -44,19 +44,41 @@ export async function ObterUsuarios(req, res){
   }
 };
 
-export async function AtualizarUsuarios(req, res){
-  try {
-    const { nome, email, senha } = req.body;
-    await db.execute(
-      "UPDATE usuarios SET nome = ?, email = ?, senha = ? WHERE id = ?",
-      [nome, email, senha, req.params.id]
-    );
-    res.json({ mensagem: "Usuário atualizado com sucesso!" });
-  } catch (err) {
-    res.status(500).json({ erro: err.message });
-  }
-};
 
+export async function AtualizarUsuarios(req, res) {
+  const { nome, email, senha, foto } = req.body; 
+
+  let query = "UPDATE usuarios SET nome=?, email=?, senha=?";
+  const params = [nome, email, senha];
+
+  if (foto) {
+      query += ", foto=?";
+      params.push(foto);
+  }
+
+  query += " WHERE id=?";
+  params.push(req.params.id);
+
+  // ADICIONE ESTE LOG DE VERIFICAÇÃO:
+  console.log("QUERY SQL MONTADA:", query);
+  console.log("PARÂMETROS (sem foto Base64):", params.slice(0, 4)); // Loga apenas os primeiros para não poluir o console
+
+  try {
+      const [result] = await db.execute(query, params);
+      
+      // VERIFIQUE SE ALGUMA LINHA FOI REALMENTE AFETADA:
+      if (result.affectedRows === 0) {
+           console.warn("ATENÇÃO: Nenhuma linha afetada! O ID do usuário pode estar incorreto, ou a foto não está sendo salva.");
+           return res.status(404).json({ erro: "Usuário não encontrado ou dados não alterados." });
+      }
+      
+      res.json({ mensagem: "Atualizado com sucesso!" });
+  } catch (err) {
+      // Loga o erro específico do MySQL, caso ele falhe.
+      console.error("ERRO DO MYSQL:", err.message);
+      res.status(500).json({ erro: "Erro de servidor. Verifique o log do MySQL." });
+  }
+}
 
 export async function DeletarUsuarios(req, res) {
   try {
