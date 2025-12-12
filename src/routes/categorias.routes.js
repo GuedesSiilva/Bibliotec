@@ -3,7 +3,6 @@ import { getCategoria, getLivrosPorCategoria } from "../controllers/categorias.c
 
 const router = Router();
 
-
 router.get("/:id", getCategoria);
 
 router.get("/:id/livros", getLivrosPorCategoria);

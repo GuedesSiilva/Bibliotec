@@ -23,7 +23,7 @@ export const getLivrosPorCategoria = async (req, res) => {
       SELECT l.*, GROUP_CONCAT(c.categoria SEPARATOR ', ') AS categoria,
       l.titulo as titulo_livro,
       l.caminho_capa,
- 	  l.ativo AS disponibilidade
+ 	    l.ativo AS disponibilidade
       FROM livros l
       JOIN livros_categorias lc ON l.id = lc.livro_id
       JOIN categoria c ON c.id = lc.categoria_id  

@@ -78,7 +78,7 @@ function renderizarDetalhesLivro(livro) {
             
             <div class="info-item">
                 <span class="info-titulo">Gênero:</span>
-                <span class="tag">${livro.genero || 'N/A'}</span>
+                <span class="tag">${livro.categoria || 'N/A'}</span>
             </div>
             
             <div class="info-item">

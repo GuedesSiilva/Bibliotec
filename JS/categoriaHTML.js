@@ -17,7 +17,7 @@ const lista = await resp.json();
     card.innerHTML = `
     <img src="${item.caminho_capa}" alt="${item.titulo_livro}">
     <h3>${item.titulo_livro}</h3>
-    <p class="tag">Disponibilidade: ${item.disponibilidade}</p>
+    <p class="tag">${item.disponibilidade === 1 || item.disponibilidade === true ? '✅ Disponível' : '❌ Indisponível'}</p>
   `;
 
     statusGrid.appendChild(card);
