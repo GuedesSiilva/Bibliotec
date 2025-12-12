@@ -80,3 +80,13 @@ function iniciarCarrosselLivros() {
 }
 
 iniciarCarrosselLivros();
+
+export function irParaDetalhes(idLivro) {
+    if (!idLivro) {
+        console.error("ID do livro não recebido em irParaDetalhes()");
+        return;
+    }
+
+    // redireciona para a página de detalhes
+    window.location.href = `detalhes.html?id=${idLivro}`;
+}

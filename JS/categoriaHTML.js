@@ -1,3 +1,11 @@
+// fallback — garante que a função exista mesmo sem detalhes.js
+if (typeof window.irParaDetalhes !== "function") {
+  window.irParaDetalhes = function(id) {
+    if (!id) return;
+    window.location.href = `detalhes.html?id=${id}`;
+  };
+}
+
 const API_URL = "http://localhost:3000";
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -15,11 +23,13 @@ const lista = await resp.json();
     card.classList.add("book-card");
 
     card.innerHTML = `
-    <img src="${item.caminho_capa}" alt="${item.titulo_livro}">
-    <h3>${item.titulo_livro}</h3>
-    <p class="tag">Disponibilidade: ${item.disponibilidade}</p>
+    <img src="${item.caminho_capa}" alt="${item.titulo}">
+    <h3>${item.titulo}</h3>
+    <p class="tag">${item.disponibilidade === 1 || item.disponibilidade === true ? '✅ Disponível' : '❌ Indisponível'}</p>
   `;
 
+   card.addEventListener("click", () => window.irParaDetalhes(item.id));
+   
     statusGrid.appendChild(card);
   })
 };
@@ -48,7 +58,6 @@ function adicionarEventos() {
     });
   }
 }
-
 
 adicionarEventos();
 carregarTituloCategoria();

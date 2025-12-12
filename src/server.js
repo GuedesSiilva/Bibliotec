@@ -15,6 +15,7 @@ app.use(bodyParser.json());
 app.get("/", (req, res) => {
   res.send("API da Livraria funcionando!");
 });
+
 app.use("/usuarios", usuarioRoutes);
 app.use("/livros", livrosRoutes);
 app.use("/avaliacoes", avaliacoesRoutes);

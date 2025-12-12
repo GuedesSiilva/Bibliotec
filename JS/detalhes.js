@@ -1,6 +1,5 @@
 const API_URL = "http://localhost:3000";
 
-
 async function carregarDetalhesLivro(livroId) {
     try {
         console.log("Carregando livro id =", livroId);
@@ -77,8 +76,8 @@ function renderizarDetalhesLivro(livro) {
             <hr class="linha">
             
             <div class="info-item">
-                <span class="info-titulo">Gênero:</span>
-                <span class="tag">${livro.genero || 'N/A'}</span>
+                <span class="info-titulo">Categorias:</span>
+                <span class="tag">${livro.categoria || 'N/A'}</span>
             </div>
             
             <div class="info-item">
@@ -138,3 +137,8 @@ const livroId = urlParams.get("id") || 1;
 document.addEventListener("DOMContentLoaded", () => {
     carregarDetalhesLivro(livroId);
 });
+
+window.irParaDetalhes = function(id) {
+  if (!id) return console.warn("irParaDetalhes: id vazio");
+  window.location.href = `detalhes.html?id=${id}`;
+};

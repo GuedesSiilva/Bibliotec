@@ -52,8 +52,6 @@ export async function PostarLivros(req, res) {
 }
 
 
-
-
 export async function ListarLivros(req, res) {
     try {
         const [rows] = await db.execute("SELECT * FROM livros");
