@@ -1,6 +1,8 @@
 
 footer {
-    display: block;
+  display: block;
+  position: fixed;
+  bottom: 0;
   width: 100%;
   background: var(--cor-primaria);
   color: white;
