@@ -28,7 +28,7 @@ async function carregarTabela() {
                     <td>${a.criado_em}</td>
                     <td>${a.atualizado_em}</td>
                     <td>
-                    <a href="editar.html?id=${a.id}"><button>Editar</button></a>
+                    <a href="../FrontDoADM/EditLivros.html?id=${a.id}"><button>Editar</button></a>
                     <button onclick="excluir(${a.id})">Excluir</button> 
                     </td>
                 </tr>`
@@ -43,17 +43,17 @@ carregarTabela();
 
 
 async function excluir(id) {
-    if (!confirm("Tem certeza que deseja excluir este aluno?")) {
+    if (!confirm("Tem certeza que deseja excluir este livro?")) {
         return;
     }
-    console.log("Excluindo aluno", id);
+    console.log("Excluindo livro", id);
     try {
         const resposta = await fetch(`${API}/${id}`, { method: "DELETE" });
         if (resposta.status === 200) {
-            console.log("Aluno excluído com sucesso");
+            console.log("Livro excluído com sucesso");
             carregarTabela();
         } else {
-            console.log("Erro ao excluir aluno");
+            console.log("Erro ao excluir livro");
         }
     } catch (error) {
         console.error(error.message);
