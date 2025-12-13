@@ -43,7 +43,6 @@ display: flex;
 justify-content: center;
 }
 #editarPerfilBtn {
-  font-family: 'Montserrat', sans-serif;
   background: #fff;
   color:#26333d;
   padding: 10px 14px;
@@ -56,13 +55,7 @@ justify-content: center;
   background: #1b5c8d;
   color: #fff;
 }
-<<<<<<< HEAD
 #sairPerfilBtn {
-=======
-
-#sairPerfilBtn {
-  font-family: 'Montserrat', sans-serif;
->>>>>>> f02268195b9fc295d0662eb1e19edb15fc23838b
   background: #fff;
   color:#26333d;
   padding: 10px 14px;
@@ -72,7 +65,6 @@ justify-content: center;
   transition: all 0.3s ease;
 }
 #sairPerfilBtn:hover {
-<<<<<<< HEAD
   background: red;
   color: #fff;
 }
@@ -99,8 +91,4 @@ justify-content: center;
   display: flex;
   flex-direction: column;
   align-items: center; /* <-- isso centraliza TUDO horizontalmente */
-=======
-  background: #880606;
-  color: #fff;
->>>>>>> f02268195b9fc295d0662eb1e19edb15fc23838b
 }

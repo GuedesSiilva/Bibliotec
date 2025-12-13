@@ -1,25 +1,32 @@
-const id = 4;
+
+ const id = 5;
+ localStorage.setItem("usuarioId", id);
 let editando = false;
-
- const fotodePerfil = document.getElementById("fotoPerfil");
- const btnEditar = document.getElementById("editarPerfilBtn");
-  const spanNome = document.getElementById("nomeUsuario")
-  const spanEmail = document.getElementById("emailUsuario")
-  const spanSenha = document.getElementById("senhaUsuario")
-
-
+const btnEditar = document.getElementById("editarPerfilBtn");
+const btnSair = document.getElementById("sairPerfilBtn");
+const spanNome = document.getElementById("nomeUsuario")
+const spanEmail = document.getElementById("emailUsuario")
+const spanSenha = document.getElementById("senhaUsuario")
+const spanTelefone = document.getElementById("telefoneUsuario")
 
 async function carregarPerfil() {
-  try{
-  const resposta = await fetch(`http://localhost:3000/usuarios/${id}`);
-  const dados = await resposta.json();
-    spanNome.textContent = dados.nome;
-    spanEmail.textContent = dados.email;
-    spanSenha.textContent = dados.senha;
-    document.getElementById("fotoPerfil").src = dados.foto || "../IMGS/capas/domcasmurro.jpg";
-  } catch (erro) {
-    console.error("Erro ao carregar perfil:", erro);
-  }
+    try {
+        const resposta = await fetch(`http://localhost:3000/usuarios/${id}`);
+        const dados = await resposta.json();
+        console.log("Carregando perfil do usuário com ID: " + id);
+        console.log("Dados do usuário:", dados);
+        if (localStorage.getItem('isAdmin') === 'true') {
+            spanNome.textContent = dados.nome + " (Admin)";
+        }
+        else spanNome.textContent = dados.nome;
+        spanEmail.textContent = dados.email;
+        spanSenha.textContent = dados.senha;
+        spanTelefone.textContent = dados.telefone;
+    } catch (erro) {
+        console.error("Erro ao carregar perfil:", erro);
+        console.log("Carregando perfil do usuário com ID: " + id);
+
+    }
 }
 
 btnEditar.addEventListener("click", async () => {
