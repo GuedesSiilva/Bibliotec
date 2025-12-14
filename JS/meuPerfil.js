@@ -10,19 +10,39 @@ const btnEditar = document.getElementById("editarPerfilBtn");
  const spanEmail = document.getElementById("emailUsuario")
  const spanSenha = document.getElementById("senhaUsuario")
 
-async function carregarPerfil() {
- try{
- const resposta = await fetch(`http://localhost:3000/usuarios/${id}`);
- const dados = await resposta.json();
- console.log("Dados do perfil carregados:", dados);
-   spanNome.textContent = dados.nome;
-   spanEmail.textContent = dados.email;
-   spanSenha.textContent = dados.senha;
-   fotoPerfil.src = dados.foto || '../ICONS/usuario.png';
- } catch (erro) {
-   console.error("Erro ao carregar perfil:", erro);
- }
+ async function carregarPerfil() {
+    try {
+        const resposta = await fetch(`http://localhost:3000/usuarios/${id}`, {
+            signal: AbortSignal.timeout(5000) // Timeout de 5 segundos
+        });
+        
+        if (!resposta.ok) throw new Error(`Erro: ${resposta.status}`);
+        
+        const dados = await resposta.json();
+        console.log("Dados do perfil carregados:", dados);
+        
+        spanNome.textContent = dados.nome;
+        spanEmail.textContent = dados.email;
+        spanSenha.textContent = dados.senha;
+        fotodePerfil.src = dados.foto || '../ICONS/usuario.png';
+        
+    } catch (erro) {
+        console.error("Erro ao carregar perfil:", erro);
+        spanNome.textContent = "Servidor indisponível";
+        spanEmail.textContent = "Verifique sua conexão";
+        spanSenha.textContent = "---";
+        fotodePerfil.src = '../ICONS/usuario.png';
+        alert("⚠️ Servidor offline. Alguns dados podem não carregar.");
+    }
 }
+
+btnVoltar.addEventListener("click", () => {
+    if (window.history.length > 1) {    
+        window.history.back();
+    } else {
+        window.location.href = '../FrontEnd/telaInicial.html';
+    }
+});
 
 btnEditar.addEventListener("click", async () => {
    if (editando) {

@@ -2,14 +2,19 @@ footer{
   display: block;
   position: fixed;
 }
-.perfil-icone {
- font-size: 120px;
- color: #ffffff;
-user-select: none;
-display: flex;
-align-items: center;
-justify-content: center;
+
+#btnVoltar {
+
+  margin-left: 10px;
+  background: #26333d;
+  color:#fff;
+  padding: 10px;
+  width: 80px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
 }
+
 .perfil-container {
  display: flex;
  flex-direction: column;
