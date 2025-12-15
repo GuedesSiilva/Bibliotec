@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Editar Usuários</title>
 </head>
+
 <body>
   <h1>Editar Usuários</h1>
 
@@ -15,7 +17,7 @@
 
     <div>
       <label>Nome:
-        <input type="text" id="id" placeholder="Digite o id" required>
+        <input type="text" id="nome" placeholder="Digite o nome" required>
       </label>
     </div>
 
@@ -38,21 +40,18 @@
     </div>
 
     <div>
-      <label>Perfil:
-        <input type="text" id="perfil" placeholder="Tipo de perfil">
-      </label>
-    </div>
+      <select id="perfil">
+        <option value="Aluno">Aluno</option>
+        <option value="Admin">Admin</option>
+      </select>
 
-    <div>
-      <label>Foto:
-        <input type="text" id="Foto" placeholder="adicione sua Foto">
-      </label>
     </div>
 
     <button id="enviar" type="submit">Enviar</button>
     <button id="limpar" type="reset">Limpar</button>
   </form>
 
-  <script src="../JS_ADM/editlivros.js" defer></script>
+  <script src="../JS_ADM/editusers.js" defer></script>
 </body>
+
 </html>

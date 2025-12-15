@@ -1,5 +1,16 @@
 const API = "http://localhost:3000/livros"
 
+function formatarDataBR(data) {
+    if (!data) return "";
+    const d = new Date(data);
+    if (isNaN(d.getTime())) return data; // caso não seja data válida
+    const dia = String(d.getDate()).padStart(2, "0");
+    const mes = String(d.getMonth() + 1).padStart(2, "0");
+    const ano = d.getFullYear();
+    return `${dia}-${mes}-${ano}`; // dd-mm-yyyy
+}
+
+
 async function carregarTabela() {
 
     try {
@@ -25,8 +36,8 @@ async function carregarTabela() {
                     <td>${a.caminho_capa}</td>
                     <td>${a.sinopse}</td>
                     <td>${a.ativo}</td>
-                    <td>${a.criado_em}</td>
-                    <td>${a.atualizado_em}</td>
+                    <td>${formatarDataBR(a.criado_em)}</td>
+                    <td>${formatarDataBR(a.atualizado_em)}</td>
                     <td>
                     <a href="../FrontDoADM/EditLivros.html?id=${a.id}"><button>Editar</button></a>
                     <button onclick="excluir(${a.id})">Excluir</button> 

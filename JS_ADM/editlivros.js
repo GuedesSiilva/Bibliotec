@@ -9,7 +9,7 @@ const API = "http://localhost:3000/livros";
 
 async function carregarLivrosDisponiveis() {
   try {
-    const res = await fetch(`${API}`); // ou `${API}/ids` se preferir rota leve
+    const res = await fetch(`${API}`);
     const livros = await res.json();
     console.log("Livros recebidos:", livros);
 
@@ -17,14 +17,12 @@ async function carregarLivrosDisponiveis() {
     select.innerHTML = `<option value="">Selecione um livro</option>`;
 
     livros.forEach(livro => {
-      // se no seu JSON o campo id for diferente, adapte aqui
       const option = document.createElement("option");
       option.value = livro.id;
       option.textContent = `${livro.id} - ${livro.titulo}`;
       select.appendChild(option);
     });
 
-    // se veio id pela URL e existe no select, marque-o
     if (idLivro) {
       select.value = idLivro;
       carregarLivro(idLivro);
