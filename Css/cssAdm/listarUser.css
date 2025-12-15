@@ -1,0 +1,151 @@
+/* =========================
+   RESET BÁSICO
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   BODY
+========================= */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f9;
+    color: #333;
+}
+
+/* =========================
+   TÍTULO
+========================= */
+
+h2 {
+    text-align: center;
+    margin: 30px 0 20px;
+    font-size: 1.6em;
+    font-weight: 500;
+}
+
+/* =========================
+   TABELA (CANTO A CANTO)
+========================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    table-layout: fixed;
+}
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+thead {
+    background-color: #26333d;
+}
+
+thead th {
+    color: #fff;
+    padding: 8px 6px;
+    font-size: 0.75em;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+
+    white-space: normal;
+    word-break: break-word;
+}
+
+/* =========================
+   CORPO
+========================= */
+
+tbody td {
+    padding: 6px 6px;
+    font-size: 0.75em;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+
+    white-space: normal;
+    word-break: break-word;
+}
+
+/* Linhas alternadas */
+tbody tr:nth-child(even) {
+    background-color: #f6f8fa;
+}
+
+/* Hover */
+tbody tr:hover {
+    background-color: #eef3f7;
+}
+
+/* =========================
+   COLUNAS LONGAS
+========================= */
+
+td:nth-child(2),
+td:nth-child(3),
+td:nth-child(4) {
+    text-align: left;
+}
+
+/* =========================
+   COLUNA AÇÕES
+========================= */
+
+td:last-child {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+/* =========================
+   BOTÕES DA TABELA (GENÉRICO)
+========================= */
+
+td:last-child button {
+    padding: 6px 14px;
+    font-size: 0.8em;
+    font-weight: 600;
+
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+
+    transition: background-color 0.25s, transform 0.15s, box-shadow 0.15s;
+}
+
+/* Primeiro botão = Editar */
+td:last-child button:first-child {
+    background-color: #007bff;
+    color: #fff;
+}
+
+td:last-child button:first-child:hover {
+    background-color: #005fd1;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.25);
+}
+
+/* Segundo botão = Excluir */
+td:last-child button:last-child {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+td:last-child button:last-child:hover {
+    background-color: #b52a37;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.25);
+}
+
+td:last-child button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}

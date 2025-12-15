@@ -27,8 +27,8 @@ async function carregarTabela() {
                 <td>${formatarDataBR(a.data_nascimento)}</td>
                 <td>${a.perfil}</td>
                 <td>
-                    <a href="editar.html?id=${a.id}"><button>Editar</button></a>
-                    <button onclick="excluir(${a.id})">Excluir</button> 
+                    <a href="../FrontDoADm/EditUsers.html?id=${a.id}"><button class="btn-editar">Editar</button></a>
+                    <button onclick="excluir(${a.id})" class="btn-excluir">Excluir</button> 
                 </td>
             </tr>`
         ).join("");

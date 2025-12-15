@@ -39,8 +39,8 @@ async function carregarTabela() {
                     <td>${formatarDataBR(a.criado_em)}</td>
                     <td>${formatarDataBR(a.atualizado_em)}</td>
                     <td>
-                    <a href="../FrontDoADM/EditLivros.html?id=${a.id}"><button>Editar</button></a>
-                    <button onclick="excluir(${a.id})">Excluir</button> 
+                    <a href="../FrontDoADM/EditLivros.html?id=${a.id}"><button class="btn-editar">Editar</button></a>
+                    <button class="btn-excluir" onclick="excluir(${a.id})">Excluir</button> 
                     </td>
                 </tr>`
         ).join("");

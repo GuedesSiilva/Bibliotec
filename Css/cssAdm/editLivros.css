@@ -1,0 +1,175 @@
+/* =========================
+   RESET BÁSICO
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   BODY
+========================= */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f9;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========================
+   FORMULÁRIO
+========================= */
+
+#form-atualizar {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto 60px;
+    padding: 50px;
+
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px 20px;
+}
+
+/* =========================
+   SELECT DO LIVRO (TOPO)
+========================= */
+
+#select-livro {
+    width: 320px;
+    height: 48px;
+
+    margin: 0 auto 30px;
+
+    padding: 12px 18px;
+    font-size: 1em;
+
+    border: 1px solid #ccc;
+    border-radius: 100px;
+    background-color: #fff;
+
+    display: block;
+}
+
+/* =========================
+   CAMPOS (3 COLUNAS)
+========================= */
+
+#form-atualizar > div {
+    width: calc(33.33% - 14px);
+    min-width: 200px;
+}
+
+/* Esconde labels */
+#form-atualizar label {
+    font-size: 15px;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    height: 48px;
+
+    padding: 12px 18px;
+    font-size: 1em;
+
+    border: 1px solid #ccc;
+    border-radius: 100px;
+    background-color: #fff;
+
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input::placeholder {
+    color: #888;
+}
+
+/* Focus */
+input:focus,
+#select-livro:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+    outline: none;
+}
+
+/* =========================
+   BOTÕES
+========================= */
+
+#enviar,
+#limpar {
+    height: 48px;
+    min-width: 160px;
+
+    padding: 12px 35px;
+    margin-top: 40px;
+
+    border: none;
+    border-radius: 100px;
+
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Enviar */
+#enviar {
+    background-color: #007bff;
+    color: #fff;
+    margin-left: auto;
+}
+
+/* Limpar */
+#limpar {
+    background-color: #eaeaea;
+    color: #000;
+    margin-right: auto;
+}
+
+/* Hover */
+#enviar:hover {
+    background-color: #005fd1;
+}
+
+#limpar:hover {
+    background-color: #d6d6d6;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 900px) {
+    #form-atualizar > div {
+        width: 48%;
+    }
+}
+
+@media (max-width: 600px) {
+    #form-atualizar > div {
+        width: 100%;
+    }
+
+    #select-livro {
+        width: 100%;
+    }
+
+    #enviar,
+    #limpar {
+        width: 100%;
+        margin: 10px 0 0;
+    }
+}

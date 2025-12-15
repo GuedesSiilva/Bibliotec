@@ -77,6 +77,7 @@ export async function PostarLivros(req, res) {
     res.status(500).json({ erro: error.message });
   }
 }
+
 export async function ListarLivros(req, res) {
     try {
         const [rows] = await db.execute("SELECT * FROM livros");
