@@ -5,7 +5,8 @@ export async function carregarLivros() {
   livros = data.map(l => ({
     id: l.id,
     nome: l.titulo,
-    img: l.caminho_capa
+    img: l.caminho_capa,
+    autor: l.autor,
   }));}
 
 export const categorias = [

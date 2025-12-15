@@ -19,7 +19,8 @@ function iniciarCarrosselLivros() {
   carrossel.innerHTML = livros.map(item => `
     <a href="Detalhes.html?id=${item.id}" class="item">
       <img src="${item.img}" alt="${item.nome}">
-      <p>${item.nome}</p>
+      <h3>${item.nome}</h3>
+      <p>${item.autor}</p>
     </a>
   `).join("");
 
