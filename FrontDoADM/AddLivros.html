@@ -15,19 +15,26 @@
     <div id="header-placeholder"></div>
     
         <div id="containerCadastro">
-            <h3>Adicione seu Livro no Bibliotec</h3>
+            <h3>Adicione um Livro na Bibliotec</h3>
+            <div id="previewContainer">
+                <img id="previewCapa" src="../IMGS/capas/capaplaceholder.png" alt="Preview da Capa do Livro">
+            </div>
             <form id="formCadastro" method="post" enctype="multipart/form-data">
-                <input type="file" accept="image/*" name="capa" required>
+                <input type="file" accept="image/*" name="capa" id="capa" required>    
                 <input type="text" name="titulo" id="titulo" placeholder="Titulo" required />
                 <input type="text" name="autor" id="autor" placeholder="Autor" required />
-                <select id="categoria" name="categoria" required>
+                <select id="categoria" name="categoria"required>
                  <option value="">Selecione uma categoria</option>
                 </select>
                 <input type="text" name="editora" id="editora" placeholder="Editora" />
-                <input type="date" name="ano_publicacao" id="ano_publicacao"  placeholder="Ano de Publicação" />
+                <input type="number" min="1901" max="2025" name="ano_publicacao" id="ano_publicacao"  placeholder="Ano de Publicação" />
                 <input type="text" name="isbn" id="isbn" placeholder="Isbn" />
                 <input type="text" name="idioma" id="idioma" placeholder="Idioma" />
-                <input type="text" name="formato" id="formato" placeholder="Formato" />
+                <select name="formato" required>
+                    <option value="Físico">Físico</option>
+                    <option value="E-book">E-book</option>
+                    <option value="Audiobook">Audiobook</option>
+                </select>             
                 <input type="text" name="sinopse" id="sinopse" placeholder="Sinopse" />
                 <div id="btns">
                 <button type="submit" id="btnCadastrar">Cadastrar</button>

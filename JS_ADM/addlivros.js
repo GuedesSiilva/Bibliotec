@@ -1,3 +1,19 @@
+const inputCapa = document.getElementById("capa");
+const preview = document.getElementById("previewCapa");
+
+inputCapa.addEventListener("change", () => {
+  const file = inputCapa.files[0];
+
+  if (!file) {
+    preview.style.display = "none";
+    return;
+  }
+
+  preview.src = URL.createObjectURL(file);
+  preview.style.display = "block";
+});
+
+
 document.addEventListener("DOMContentLoaded", carregarCategorias);
 
 async function carregarCategorias() {

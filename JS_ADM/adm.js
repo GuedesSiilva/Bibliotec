@@ -36,7 +36,7 @@ function adicionarEventos() {
   }
   if (AddUsers) {
     AddUsers.addEventListener("click", () => {
-      window.location.href = "../FrontEnd/Cadastro.html";
+      window.location.href = "../FrontDoADM/addUser.html";
     })
   }
   if (EditUsers) {

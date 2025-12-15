@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <icon rel="icon" href="../IMGS/Group.svg" type="image/x-icon">
+        <title>Cadastro de Usuários</title>
+        <link rel="stylesheet" href="../Css/header.css" />
+        <link rel="stylesheet" href="../Css/detalhes.css">
+        <link rel="stylesheet" href="../Css/footer.css" />
+        <link rel="stylesheet" href="../Css/cssAdm/addUser.css" />
+</head>
+
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <div id="containerCadastro">
+        <h3>Adicione um usuário na Bibliotec</h3>
+        <form id="formCadastroUser" method="post" enctype="multipart/form-data">
+            <input type="text" name="nome" id="nome" placeholder="Nome" required />
+            <input type="text" name="email" id="email" placeholder="Email" required />
+            <input type="text" name="senha" id="senha" placeholder="Senha" required />
+            <input type="date" name="data_nascimento" id="data_nascimento" placeholder="Data de Nascimento" />
+            <select name="perfil" id="perfil" required>
+                <option value="">Selecione o tipo de perfil</option>
+                <option value="admin">Admin</option>
+                <option value="aluno">Aluno</option>
+            </select>
+            <div id="btns">
+                <button type="submit" id="btnCadastrar">Cadastrar</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <script type="module" src="../JS/header.js"></script>
+    <script type="module" src="../JS_ADM/addUser.js"></script>
+    <script type="module" src="../JS/footer.js"></script>
+</body>
+
+</html>

@@ -23,8 +23,25 @@ export async function PostarLivros(req, res) {
             ativo
         } = req.body;
 
+<<<<<<< HEAD
         if (!titulo || !autor || !categoria)
             return res.status(400).json({ erro: "Campos obrigatórios" });
+=======
+    const {
+      titulo,
+      autor,
+      categoria,
+      editora,
+      ano_publicacao,
+      isbn,
+      idioma,
+      formato,
+      sinopse,
+      ativo
+    } = req.body;
+
+
+>>>>>>> 7ba5edc016679249e3123e2ca0307f7e787e7985
 
         await db.execute(
             `INSERT INTO livros 
