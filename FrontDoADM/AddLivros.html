@@ -5,28 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro - BIBLIOTEC</title>
     <link rel="stylesheet" href="../Css/telaCadastro.css" />
+    <link rel="stylesheet" href="../Css/header.css" />
     <link rel="stylesheet" href="../Css/detalhes.css">
     <link rel="stylesheet" href="../Css/footer.css" />
+    <link rel="stylesheet" href="../Css/cssAdm/addlivros.css" />
 </head>
 <body>
 
-
-    <div id="retEsquerda">
-        <img src="../IMGS/Camada_1-1.svg" id="logo" alt="Bibliotec logo" />
-    </div>
-    <div id="retDireita">
-        <div id="loginBox">
+    <div id="header-placeholder"></div>
+    
+        <div id="containerCadastro">
             <h3>Adicione seu Livro no Bibliotec</h3>
             <form id="formCadastro" action="#" method="post">
-                <input type="text" id="titulo" name="titulo" placeholder="Titulo" required />
-                <input type="text" id="autor" name="autor" placeholder="Autor" required />
-                <input type="text" id="categoria" name="categoria" placeholder="Categoria" />
-                <input type="text" id="editora" name="editora" placeholder="Editora" />
-                <input type="date" id="ano_publicacao" name="ano_publicacao" placeholder="Ano de Publicação" />
-                <input type="text" id="isbn" name="isbn" placeholder="Isbn" />
-                <input type="text" id="idioma" name="idioma" placeholder="Idioma" />
-                <input type="text" id="formato" name="formato" placeholder="Formato" />
-                <input type="text" id="sinopse" name="sinopse" placeholder="Sinopse" />
+                <input type="text" id="titulo" placeholder="Titulo" required />
+                <input type="text" id="autor" placeholder="Autor" required />
+                <select id="categoria" required>
+                 <option value="">Selecione uma categoria</option>
+                </select>
+
+                <input type="text" id="editora" placeholder="Editora" />
+                <input type="date" id="ano_publicacao"  placeholder="Ano de Publicação" />
+                <input type="text" id="isbn" placeholder="Isbn" />
+                <input type="text" id="idioma" placeholder="Idioma" />
+                <input type="text" id="formato" placeholder="Formato" />
+                <input type="text" id="sinopse" placeholder="Sinopse" />
                 <div id="btns">
                     <button type="submit" id="btnCadastrar">Cadastrar</button>
                 </div>
@@ -35,7 +37,8 @@
     </div>
 
     <div id="footer-placeholder"></div>
-    
+    <script type="module" src="../JS/header.js"></script>
+    <script type="module" src="../JS_ADM/addlivros.js"></script>
     <script type="module" src="../JS/footer.js"></script>
 </body>
 </html>

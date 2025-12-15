@@ -39,3 +39,17 @@ export const getLivrosPorCategoria = async (req, res) => {
     res.status(500).json({ erro: "Erro ao buscar livros por categoria", detalhe: error.message });
   }
 };
+
+export async function getTodasCategorias(req, res) {
+  try {
+    const [rows] = await db.query(
+      "SELECT id, categoria FROM categoria ORDER BY categoria"
+    );
+    res.json(rows);
+  } catch (error) {
+    res.status(500).json({
+      erro: "Erro ao buscar categorias",
+      detalhe: error.message
+    });
+  }
+}

@@ -1,16 +1,17 @@
 html,body{
  font-family: Montserrat, sans-serif;
     margin:0;
-    padding:0;
+    padding: 0;
     background-color: #e9f0ef;
 }
 .card-link {
   text-decoration: none;
+  color:inherit
 }
 .grid-livros {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+   gap: 18px;
   padding: 20px;
   text-decoration: none;
 }
@@ -28,15 +29,22 @@ html,body{
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 10px;
+  padding: 6px;
   text-decoration: none;
+  width: 100%;
+  max-width: 290px;
 }
 .livro-card p,.livro-card h3 {
-  font-size: 18px;
+  font-size: 14px;
   color: #26333d;
+  margin: 8px 0 4px 0;
 }
 .livro-card img {
-  width: 300px;
-  height: 450px;
+  width: 180px;
+  height: 270px;
   border-radius: 10px;
+}
+p {
+  padding-left: 20px;
+  font-size: 20px;
 }

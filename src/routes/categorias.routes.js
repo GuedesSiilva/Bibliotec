@@ -1,7 +1,9 @@
 import { Router } from "express";
-import { getCategoria, getLivrosPorCategoria } from "../controllers/categorias.controllers.js";
+import { getCategoria, getLivrosPorCategoria,getTodasCategorias } from "../controllers/categorias.controllers.js";
 
 const router = Router();
+
+router.get("/", getTodasCategorias);
 
 router.get("/:id", getCategoria);
 
