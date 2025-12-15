@@ -18,3 +18,16 @@ async function carregarCategorias() {
     console.error("Erro ao carregar categorias:", err);
   }
 }
+
+document.getElementById("formCadastro").addEventListener("submit", async e => {
+  e.preventDefault();
+
+  const formData = new FormData(e.target);
+
+  await fetch("http://localhost:3000/livros", {
+    method: "POST",
+    body: formData
+  });
+
+  alert("Livro cadastrado");
+});

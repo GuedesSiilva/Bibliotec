@@ -8,49 +8,58 @@ function toNull(value) {
 }
 
 export async function PostarLivros(req, res) {
-    try {
-        const {
-            titulo,
-            autor,
-            genero,
-            editora,
-            ano_publicacao,
-            isbn,
-            idioma,
-            formato,
-            caminho_capa,
-            sinopse,
-            ativo
-        } = req.body;
+  try {
+    console.log("🔥 ENTROU NO POSTAR LIVROS");
+    console.log("BODY:", req.body);
+    console.log("FILE:", req.file);
 
-        if (!titulo || !autor || !genero)
-            return res.status(400).json({ erro: "Campos obrigatórios" });
+    const {
+      titulo,
+      autor,
+      categoria,
+      editora,
+      ano_publicacao,
+      isbn,
+      idioma,
+      formato,
+      sinopse
+    } = req.body;
 
-        await db.execute(
-            `INSERT INTO livros 
-            (titulo, autor, genero, editora, ano_publicacao, isbn, idioma, formato, caminho_capa, sinopse, ativo)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-            [
-                titulo,
-                autor,
-                genero,
-                toNull(editora),
-                toNull(ano_publicacao),
-                toNull(isbn),
-                toNull(idioma),
-                toNull(formato),
-                toNull(caminho_capa),
-                toNull(sinopse),
-                toNull(ativo)
-            ]
-        );
+    const ativo = 1;
 
-        res.json({ mensagem: "Livro postado com sucesso!" });
-    } catch (err) {
-        res.status(500).json({ erro: err.message });
-    }
+    const anoPublicacaoFinal =
+      ano_publicacao === "" ? null : ano_publicacao;
+
+    const caminhoCapa = req.file
+      ? `/uploads/${req.file.filename}`
+      : null;
+
+    await db.query(
+      `INSERT INTO livros 
+      (titulo, autor, categoria, editora, ano_publicacao, isbn, idioma, formato, caminho_capa, sinopse, ativo)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        titulo,
+        autor,
+        categoria,
+        editora,
+        anoPublicacaoFinal,
+        isbn,
+        idioma,
+        formato,
+        caminhoCapa,
+        sinopse,
+        ativo
+      ]
+    );
+
+    res.status(201).json({ msg: "Livro cadastrado com sucesso" });
+
+  } catch (error) {
+    console.error("❌ ERRO AO INSERIR:", error);
+    res.status(500).json({ erro: error.message });
+  }
 }
-
 
 export async function ListarLivros(req, res) {
     try {
@@ -114,7 +123,7 @@ export async function AtualizarLivros(req, res) {
         const {
             titulo,
             autor,
-            genero,
+            categoria,
             editora,
             ano_publicacao,
             isbn,
@@ -125,14 +134,14 @@ export async function AtualizarLivros(req, res) {
             ativo
         } = req.body;
 
-        if (!titulo || !autor || !genero)
+        if (!titulo || !autor || !categoria)
             return res.status(400).json({ erro: "Campos obrigatórios" });
 
         await db.execute(
             `UPDATE livros SET 
                 titulo = ?, 
                 autor = ?, 
-                genero = ?, 
+                categoria = ?, 
                 editora = ?, 
                 ano_publicacao = ?, 
                 isbn = ?, 
@@ -145,7 +154,7 @@ export async function AtualizarLivros(req, res) {
             [
                 titulo,
                 autor,
-                genero,
+                categoria,
                 toNull(editora),
                 toNull(ano_publicacao),
                 toNull(isbn),

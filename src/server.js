@@ -17,6 +17,7 @@ app.get("/", (req, res) => {
   res.send("API da Livraria funcionando!");
 });
 
+app.use("/uploads", express.static("uploads"));
 app.use("/usuarios", usuarioRoutes);
 app.use("/livros", livrosRoutes);
 app.use("/avaliacao", avaliacoesRoutes);
