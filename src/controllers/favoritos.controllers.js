@@ -68,29 +68,22 @@ export const Favoritar = async (req, res) => {
 // ============================
 
 export async function DeletarFavoritos(req, res) {
-    const idUsuario = req.usuario.id; 
-    const idFavorito = req.params.id;
+    const { usuarioId, livroId } = req.params;
 
     try {
-
         const [result] = await db.execute(
-            "DELETE FROM favoritos WHERE id = ? AND id_usuario = ?", 
-            [idFavorito, idUsuario]
+            "DELETE FROM favoritos WHERE usuario_id = ? AND livro_id = ?", 
+            [usuarioId, livroId]
         );
 
-
-        if (result.affectedRows === 0) {
-            return res.status(404).json({ 
-                erro: "Livro favorito não encontrado ou você não tem permissão para deletá-lo." 
-            });
-        }
+        if (result.affectedRows === 0)
+            return res.status(404).json({ message: "Favorito não encontrado" });
 
         res.status(204).send();
-        
     } catch (err) {
-        res.status(500).json({ erro: "Erro interno do servidor ao tentar deletar o favorito.", detalhes: err.message });
+        res.status(500).json({ message: err.message });
     }
-};
+}
 
 export async function listarFavoritosPorID(req, res) {
   try {

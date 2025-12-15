@@ -5,23 +5,23 @@ import { db } from "../config/db.js";
 // ============================
 export async function listarAvaliacoes(req, res){
   try {
+    const id_livro = req.params.id
+
     const sql = `
-      SELECT 
-        a.id AS id_avaliacao,
-        a.comentario,
-        a.nota,
-        u.nome AS nome_usuario,
-        l.titulo AS titulo_livro
-      FROM avaliacoes a
-      JOIN usuarios u ON a.usuario_id = u.id
-      JOIN livros l ON a.livro_id = l.id
+SELECT
+    a.nota,
+    a.comentario,
+    DATE_FORMAT(a.data_avaliacao, '%Y-%m-%d') AS data_avaliacao
+FROM avaliacoes a
+WHERE a.livro_id = ?
+ORDER BY data_avaliacao desc
     `;
 
-    const [rows] = await db.query(sql);
+    const [rows] = await db.query(sql , [id_livro]);
     res.status(200).json(rows);
   } catch (error) {
-    console.error("Erro ao listar avaliações:", error);
-    res.status(500).json({ message: "Erro ao buscar avaliações" });
+    console.error("Erro ao buscar avaliação:", error);
+    res.status(500).json({ message: "Erro ao buscar avaliação" });
   }
 };
 

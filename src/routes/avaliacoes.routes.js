@@ -3,7 +3,7 @@ import { ListarAvaliacoesDeLivros, MediaAvaliacoesPorLivro, listarAvaliacoes, cr
 
 const router = express.Router(); 
 
-router.get("/", listarAvaliacoes); 
+router.get("/:id", listarAvaliacoes); 
 
 router.get("/medias", ListarAvaliacoesDeLivros); 
 

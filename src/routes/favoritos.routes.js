@@ -10,7 +10,7 @@ router.get("/:id", listarFavoritosPorID);
 
 router.post("/", Favoritar);
 
-router.delete("/:id", DeletarFavoritos);
+router.delete("/:usuarioId/:livroId", DeletarFavoritos);
 
 
 export default router;

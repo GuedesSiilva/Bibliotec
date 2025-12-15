@@ -130,7 +130,132 @@ h1 {
   color: #e0245e;
   font-variation-settings: 'FILL' 1;
 }
+.estrelas-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
 
+.estrelas {
+    position: relative;
+    font-size: 1.5rem;
+    line-height: 1;
+    width: fit-content;
+}
+
+.estrelas-back {
+    color: #ccc;
+}
+
+.estrelas-front {
+    color: gold;
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.nota {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.sem-avaliacao {
+    color: #888;
+    font-style: italic;
+}
+
+/* ===== COMENTÁRIOS ===== */
+.comentarios {
+  padding-left: 10px;
+    margin-top: 40px;
+    max-width: 900px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.comentarios h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.comentarios .linha {
+    border: none;
+    height: 1px;
+    background: #e5e5e5;
+    margin-bottom: 20px;
+}
+
+/* Comentário individual */
+.comentario {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid #e0e0e0;
+    align-items: flex-start;
+}
+
+.avatar {
+    min-width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar span {
+    font-size: 24px;
+    color: #666;
+}
+
+/* Conteúdo do comentário */
+.comentario-conteudo {
+    flex: 1;
+}
+
+/* Nota */
+.comentario-nota {
+    font-size: 0.9rem;
+    color: #f1c40f;
+    margin-bottom: 4px;
+}
+
+/* Texto */
+.comentario-texto {
+    font-size: 0.95rem;
+    color: #222;
+    line-height: 1.4;
+    margin-bottom: 6px;
+}
+
+/* Data */
+.comentario-data {
+    font-size: 0.75rem;
+    color: #777;
+}
+
+/* Sem comentários */
+.sem-comentarios {
+    color: #777;
+    font-size: 0.95rem;
+    padding: 20px 0;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .comentario {
+        gap: 10px;
+    }
+
+    .comentario::before {
+        width: 34px;
+        height: 34px;
+        font-size: 0.85rem;
+    }
+}
 
 /* Desktop */
 @media (min-width: 1024px) {

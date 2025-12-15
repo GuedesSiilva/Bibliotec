@@ -57,25 +57,45 @@ async function carregarFavoritos() {
     `;
     return;
   }
+
   lista.forEach(item => {
     const card = document.createElement("div");
     card.classList.add("book-card");
 
     card.innerHTML = `
       <img src="${item.caminho_capa}" alt="${item.titulo_livro}">
-    <h3>${item.titulo_livro}</h3>
-    <p class="tag">Autor: ${item.autor}</p>
+      <h3>${item.titulo_livro}</h3>
+      <p class="tag">Autor: ${item.autor}</p>
 
-      <button class="favorite-btn" id="FavoriteBTN">
+      <button class="favorite-btn">
         <span class="material-symbols-outlined">favorite</span>
       </button>
     `;
 
+    // Clique no card abre detalhes
     card.addEventListener("click", () => window.irParaDetalhes(item.livro_id));
+
+    // Clique no botão de favorito
+    const favBtn = card.querySelector(".favorite-btn");
+    favBtn.addEventListener("click", async (e) => {
+      e.stopPropagation(); // evita abrir detalhes
+      try {
+        // Remove dos favoritos via API
+        await fetch(`${API_URL}/favoritos/${id_usuario}/${item.livro_id}`, {
+          method: "DELETE"
+        });
+        // Remove o card do DOM
+        card.remove();
+      } catch (err) {
+        console.error("Erro ao remover favorito:", err);
+        alert("Não foi possível remover o favorito.");
+      }
+    });
 
     grid.appendChild(card);
   });
 }
+
 
 carregarReservas();
 carregarFavoritos();

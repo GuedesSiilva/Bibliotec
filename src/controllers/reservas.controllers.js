@@ -113,35 +113,39 @@ export const criarReserva = async (req, res) => {
 // EXCLUIR RESERVA
 // ============================
 
-export async function DeletarReservas(req, res) {
-  try {
-    const reservaId = req.params.id;
+export async function DeletarReserva(req, res) {
+    try {
+        const { usuarioId, livroId } = req.params;
 
-    const [rows] = await db.query(
-      "SELECT livro_id FROM reservas WHERE id = ?",
-      [reservaId]
-    );
+        // Confirma se existe a reserva
+        const [rows] = await db.execute(
+            "SELECT * FROM reservas WHERE usuario_id = ? AND livro_id = ?",
+            [usuarioId, livroId]
+        );
 
-    if (rows.length === 0) {
-      return res.status(404).json({ mensagem: "Reserva não encontrada." });
+        if (rows.length === 0) {
+            return res.status(404).json({ message: "Reserva não encontrada" });
+        }
+
+        // Deleta a reserva
+        await db.execute(
+            "DELETE FROM reservas WHERE usuario_id = ? AND livro_id = ?",
+            [usuarioId, livroId]
+        );
+
+        // Libera o livro
+        await db.execute(
+            "UPDATE livros SET ativo = 1 WHERE id = ?",
+            [livroId]
+        );
+
+        return res.status(200).json({ message: "Reserva removida e livro liberado" });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ message: "Erro ao deletar reserva" });
     }
+}
 
-    const livro_id = rows[0].livro_id;
-
-    await db.execute("DELETE FROM reservas WHERE id = ?", [reservaId]);
-
-    await db.query(
-      `UPDATE livros SET ativo = 1 WHERE id = ?`,
-      [livro_id]
-    );
-
-    return res.json({ mensagem: "Reserva deletada e livro reativado com sucesso!" });
-
-  } catch (err) {
-    console.error(err);
-    return res.status(500).json({ erro: err.message });
-  }
-};
 
 
 export async function ListarReservasDeLivrosID(req, res) {
