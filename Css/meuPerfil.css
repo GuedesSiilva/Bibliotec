@@ -47,6 +47,19 @@ color: #fff;
 display: flex;
 justify-content: center;
 }
+#sairEditarBtn {
+  background: #fff;
+  color:#26333d;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#sairEditarBtn:hover {
+  background: #888888;
+  color: #fff;
+}
 #editarPerfilBtn {
   background: #fff;
   color:#26333d;

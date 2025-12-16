@@ -9,6 +9,25 @@ const btnEditar = document.getElementById("editarPerfilBtn");
 const spanNome = document.getElementById("nomeUsuario")
 const spanEmail = document.getElementById("emailUsuario")
 const spanSenha = document.getElementById("senhaUsuario")
+const spanCancelar = document.getElementById("sairEditarBtn")
+
+// Esconder botão de cancelar por padrão
+if (spanCancelar) spanCancelar.style.display = 'none';
+
+// Clique em cancelar (sair do modo edição sem salvar)
+if (spanCancelar) spanCancelar.addEventListener('click', cancelEditar);
+
+function cancelEditar() {
+    editando = false;
+    btnEditar.textContent = "Editar Perfil";
+    btnEditar.style.backgroundColor = "";
+    btnEditar.style.color = "";
+    if (spanCancelar) spanCancelar.style.display = 'none';
+    // Limpa qualquer alteração temporária como a imagem em base64
+    fotoBase64 = null;
+    // Recarrega os dados do perfil para desfazer alterações na UI
+    carregarPerfil();
+}
 
 async function carregarPerfil() {
     try {
@@ -61,6 +80,8 @@ function entrarModoEdicao() {
     spanNome.innerHTML = `<input type="text" id="inputNome" value="${spanNome.textContent}">`;
     spanEmail.innerHTML = `<input type="email" id="inputEmail" value="${spanEmail.textContent}">`;
     spanSenha.innerHTML = `<input type="text" id="inputSenha" value="${spanSenha.textContent}">`;
+    // Mostrar botão de cancelar enquanto estiver editando
+    if (spanCancelar) spanCancelar.style.display = 'inline-block';
 }
 
 async function salvarPerfil() {
@@ -86,6 +107,7 @@ async function salvarPerfil() {
             btnEditar.textContent = "Editar Perfil";
             btnEditar.style.backgroundColor = "";
             btnEditar.style.color = "";
+            if (spanCancelar) spanCancelar.style.display = 'none';
 
             carregarPerfil();
         } else {
