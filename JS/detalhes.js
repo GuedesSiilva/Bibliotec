@@ -223,10 +223,12 @@ async function configurarReserva(livroId) {
         const resp = await fetch(`${API_URL}/reservas`);
         const reservas = await resp.json();
 
-        const reservaLivro = reservas.find(r => Number(r.id_livro) === Number(livroId));
+        const reservaLivro = reservas.find(
+            r => Number(r.id_livro) === Number(livroId)
+        );
 
         if (reservaLivro) {
-            if (Number(reservaLivro.id_usuario) === usuarioId) {
+            if (Number(reservaLivro.id_usuario) === Number(usuarioId)) {
                 novoBtn.textContent = "Reservado";
             } else {
                 novoBtn.textContent = "Indisponível";
@@ -240,11 +242,11 @@ async function configurarReserva(livroId) {
         // Caso não esteja reservado
         novoBtn.textContent = "Reservar Livro";
         novoBtn.disabled = false;
-        novoBtn.style.backgroundColor = ""; // deixa o padrão
+        novoBtn.style.backgroundColor = "";
         novoBtn.style.cursor = "pointer";
 
-    } catch (err) { 
-        console.error(err); 
+    } catch (err) {
+        console.error(err);
     }
 
     novoBtn.addEventListener("click", async () => {
@@ -253,13 +255,24 @@ async function configurarReserva(livroId) {
         novoBtn.style.cursor = "not-allowed";
 
         try {
-            const dataDevolucao = prompt("Informe a data de devolução (YYYY-MM-DD):");
-            if (!dataDevolucao) return;
+            // 📅 data atual + 7 dias
+            const hoje = new Date();
+            hoje.setDate(hoje.getDate() + 7);
+
+            const ano = hoje.getFullYear();
+            const mes = String(hoje.getMonth() + 1).padStart(2, "0");
+            const dia = String(hoje.getDate()).padStart(2, "0");
+
+            const dataDevolucao = `${ano}-${mes}-${dia}`; // YYYY-MM-DD
 
             await fetch(`${API_URL}/reservas`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ usuario_id: usuarioId, livro_id: livroId, data_devolucao: dataDevolucao })
+                body: JSON.stringify({
+                    usuario_id: usuarioId,
+                    livro_id: livroId,
+                    data_devolucao: dataDevolucao
+                })
             });
 
             novoBtn.textContent = "Reservado ✅";
